@@ -10,21 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var resetButton: UIButton!
-    @IBOutlet weak var timeLabel: UILabel!
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
-
-    @IBAction func resetButtonPressed(_ sender: Any) {
-        
-        
-        
-    }
 
     
     
