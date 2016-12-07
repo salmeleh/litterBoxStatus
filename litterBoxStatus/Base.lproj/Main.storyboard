@@ -21,14 +21,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Time Since Poop Scooped" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="swb-Db-Adh">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Time Since Poop Scooped:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="swb-Db-Adh">
                                 <rect key="frame" x="53" y="186" width="269" height="21"/>
-                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="20"/>
-                                <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zjo-ys-IlI">
-                                <rect key="frame" x="135" y="215" width="104" height="21"/>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -37,29 +31,51 @@
                                 <rect key="frame" x="130" y="415" width="115" height="30"/>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="18"/>
                                 <state key="normal" title="Scoop Poop!"/>
+                                <connections>
+                                    <action selector="scoopButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Xs0-Qi-RZW"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Time Since Box Cleaned" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p70-3r-uNm">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Time Since Box Cleaned:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p70-3r-uNm">
                                 <rect key="frame" x="53" y="299" width="269" height="21"/>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EzQ-3v-q2Y">
-                                <rect key="frame" x="135" y="328" width="104" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="00:00:00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EzQ-3v-q2Y">
+                                <rect key="frame" x="127" y="328" width="120" height="21"/>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="20"/>
                                 <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iRQ-vW-zN0">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iRQ-vW-zN0">
                                 <rect key="frame" x="140" y="453" width="96" height="30"/>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="18"/>
                                 <state key="normal" title="Clean Box!"/>
+                                <connections>
+                                    <action selector="cleanBoxButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MHQ-Mo-NZh"/>
+                                </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mZG-zb-l7w">
+                                <rect key="frame" x="131" y="28" width="113" height="30"/>
+                                <state key="normal" title="First Time Setup"/>
+                                <connections>
+                                    <action selector="firstStartButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="79i-2X-RSa"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="00:00:00.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zjo-ys-IlI">
+                                <rect key="frame" x="127" y="215" width="120" height="21"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="20"/>
+                                <color key="textColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="p70-3r-uNm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0Na-rD-A1I"/>
+                            <constraint firstItem="EzQ-3v-q2Y" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7Fk-p7-Jyn"/>
+                            <constraint firstItem="iRQ-vW-zN0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KBe-bk-aRf"/>
                             <constraint firstItem="wRU-3y-45z" firstAttribute="top" secondItem="EzQ-3v-q2Y" secondAttribute="bottom" constant="66" id="SUy-ve-ZAN"/>
+                            <constraint firstItem="swb-Db-Adh" firstAttribute="top" secondItem="mZG-zb-l7w" secondAttribute="bottom" constant="128" id="Td0-jR-vgL"/>
                             <constraint firstItem="swb-Db-Adh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="U5L-hE-5hZ"/>
                             <constraint firstItem="zjo-ys-IlI" firstAttribute="top" secondItem="swb-Db-Adh" secondAttribute="bottom" constant="8" id="Xzf-RS-Vnm"/>
                             <constraint firstItem="wRU-3y-45z" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aMc-SA-x3G"/>
@@ -67,9 +83,15 @@
                             <constraint firstItem="p70-3r-uNm" firstAttribute="top" secondItem="zjo-ys-IlI" secondAttribute="bottom" constant="63" id="g7i-QF-07y"/>
                             <constraint firstItem="swb-Db-Adh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="166" id="oAd-Rd-TT3"/>
                             <constraint firstItem="zjo-ys-IlI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wt4-jY-HDK"/>
+                            <constraint firstItem="mZG-zb-l7w" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xrA-j0-rEC"/>
                             <constraint firstItem="EzQ-3v-q2Y" firstAttribute="top" secondItem="p70-3r-uNm" secondAttribute="bottom" constant="8" id="zFw-1U-lGC"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cleanBoxLabel" destination="EzQ-3v-q2Y" id="cNQ-nt-BgR"/>
+                        <outlet property="firstStartButton" destination="mZG-zb-l7w" id="ypW-9w-Vfh"/>
+                        <outlet property="scoopLabel" destination="zjo-ys-IlI" id="mOf-0U-Epl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
