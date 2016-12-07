@@ -62,8 +62,21 @@ class ViewController: UIViewController {
         let currentTime = NSDate.timeIntervalSinceReferenceDate
         elapsedScoopTime = currentTime - scoopStartTime
         
+        let days = UInt8(elapsedScoopTime / 86400)
+        elapsedScoopTime -= (TimeInterval(days) * 86400)
+        
         let hours = UInt8(elapsedScoopTime / 3600.0)
         elapsedScoopTime -= (TimeInterval(hours) * 3600)
+        
+        if hours > 12 {
+            //yellow
+        }
+        else if hours > 24 {
+            //orange
+        }
+        else if hours > 48 {
+            //red
+        }
         
         let minutes = UInt8(elapsedScoopTime / 60.0)
         elapsedScoopTime -= (TimeInterval(minutes) * 60)
@@ -73,7 +86,7 @@ class ViewController: UIViewController {
         
         let fraction = UInt8(elapsedScoopTime * 100)
         
-        let timeString = String(format:"%02i:%02i:%02i.%02i", hours, minutes, seconds, fraction)
+        let timeString = String(format:"%01i:%02i:%02i:%02i.%02i", days, hours, minutes, seconds, fraction)
         
         scoopLabel.text = timeString
     }
@@ -82,6 +95,10 @@ class ViewController: UIViewController {
     func updateCleanBoxTimer() {
         let currentTime2 = NSDate.timeIntervalSinceReferenceDate
         elapsedCleanBoxTime = currentTime2 - cleanBoxStartTime
+        
+        let days2 = UInt8(elapsedCleanBoxTime / 86400)
+        elapsedCleanBoxTime -= (TimeInterval(days2) * 86400)
+        
         
         let hours2 = UInt8(elapsedCleanBoxTime / 3600.0)
         elapsedCleanBoxTime -= (TimeInterval(hours2) * 3600)
@@ -94,7 +111,7 @@ class ViewController: UIViewController {
         
         let fraction2 = UInt8(elapsedCleanBoxTime * 100)
         
-        let timeString = String(format:"%02i:%02i:%02i.%02i", hours2, minutes2, seconds2, fraction2)
+        let timeString = String(format:"%01i:%02i:%02i:%02i.%02i", days2, hours2, minutes2, seconds2, fraction2)
         
         cleanBoxLabel.text = timeString
     }
