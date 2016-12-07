@@ -99,9 +99,9 @@
 		203B730F1DF8774A0000E0C5 /* litterBoxStatus */ = {
 			isa = PBXGroup;
 			children = (
-				203B73101DF8774A0000E0C5 /* AppDelegate.swift */,
-				203B73121DF8774A0000E0C5 /* ViewController.swift */,
 				203B73141DF8774A0000E0C5 /* Main.storyboard */,
+				203B73121DF8774A0000E0C5 /* ViewController.swift */,
+				203B73101DF8774A0000E0C5 /* AppDelegate.swift */,
 				203B731A1DF8774A0000E0C5 /* Assets.xcassets */,
 				203B731C1DF8774A0000E0C5 /* LaunchScreen.storyboard */,
 				203B731F1DF8774A0000E0C5 /* Info.plist */,
