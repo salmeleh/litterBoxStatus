@@ -196,6 +196,7 @@
 				TargetAttributes = {
 					203B730C1DF8774A0000E0C5 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 754VQGA8M8;
 						ProvisioningStyle = Automatic;
 					};
 					203B73231DF8774A0000E0C5 = {
@@ -416,6 +417,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 754VQGA8M8;
 				INFOPLIST_FILE = litterBoxStatus/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = salmeleh.litterBoxStatus;
@@ -428,6 +430,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 754VQGA8M8;
 				INFOPLIST_FILE = litterBoxStatus/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = salmeleh.litterBoxStatus;
@@ -509,6 +512,7 @@
 				203B733A1DF8774A0000E0C5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		203B733B1DF8774A0000E0C5 /* Build configuration list for PBXNativeTarget "litterBoxStatusTests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +521,7 @@
 				203B733D1DF8774A0000E0C5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		203B733E1DF8774A0000E0C5 /* Build configuration list for PBXNativeTarget "litterBoxStatusUITests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +530,7 @@
 				203B73401DF8774A0000E0C5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

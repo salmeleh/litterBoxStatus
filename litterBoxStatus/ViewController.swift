@@ -26,9 +26,15 @@ class ViewController: UIViewController {
     
     var refreshInterval = 0.1
     
+    var defaults = UserDefaults.standard
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let elapsedScoopTime = defaults.object(forKey: "eST") as! Double
+        let elapsedCleanBoxTime = defaults.object(forKey: "eCBT") as! Double
+        
         firstStartButton.isHidden = false
     }
 
@@ -89,6 +95,9 @@ class ViewController: UIViewController {
         let timeString = String(format:"%01i:%02i:%02i:%02i.%02i", days, hours, minutes, seconds, fraction)
         
         scoopLabel.text = timeString
+        
+        
+        defaults.set(elapsedScoopTime, forKey: "eST")
     }
     
     
@@ -114,6 +123,9 @@ class ViewController: UIViewController {
         let timeString = String(format:"%01i:%02i:%02i:%02i.%02i", days2, hours2, minutes2, seconds2, fraction2)
         
         cleanBoxLabel.text = timeString
+        
+        
+        defaults.set(elapsedCleanBoxTime, forKey: "eCBT")
     }
     
 }
