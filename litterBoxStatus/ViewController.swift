@@ -88,15 +88,15 @@ class ViewController: UIViewController {
         
         
         if seconds >= 5 {
-            print(">= 6 seconds")
+            print(">= 6 seconds = RED")
             imageView.image = UIImage(named: "redLight")
         }
         else if seconds >= 3 {
-            print(">= 3 seconds")
+            print(">= 3 seconds = YELLOW")
             imageView.image = UIImage(named: "yellowLight")
         }
         else if seconds >= 0 {
-            print(">= 0 seconds")
+            print(">= 0 seconds = GREEN")
             imageView.image = UIImage(named: "greenLight")
         }
         
