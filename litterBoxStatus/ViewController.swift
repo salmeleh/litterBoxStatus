@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        loadDefaults()
         firstStartButton.isHidden = false
     }
 
@@ -60,24 +60,23 @@ class ViewController: UIViewController {
     
     //MARK: updateTimers
     func updateScoopTimer() {
+        
         let currentTime = NSDate.timeIntervalSinceReferenceDate
         elapsedScoopTime = currentTime - scoopStartTime
+        
+        
+        //save
+        let defaults = UserDefaults.standard
+        defaults.set(elapsedScoopTime, forKey: "eST")
+        defaults.synchronize()
+        print("eST= \(elapsedScoopTime)")
+        
         
         let days = Int(elapsedScoopTime / 86400)
         elapsedScoopTime -= (TimeInterval(days) * 86400)
         
         let hours = Int(elapsedScoopTime / 3600.0)
         elapsedScoopTime -= (TimeInterval(hours) * 3600)
-        
-//        if hours > 12 {
-//            //yellow
-//        }
-//        else if hours > 24 {
-//            //orange
-//        }
-//        else if hours > 48 {
-//            //red
-//        }
         
         let minutes = Int(elapsedScoopTime / 60.0)
         elapsedScoopTime -= (TimeInterval(minutes) * 60)
@@ -86,22 +85,21 @@ class ViewController: UIViewController {
         elapsedScoopTime -= TimeInterval(seconds)
         
         
-        
+        //update UIImage View based on time
         if seconds >= 5 {
-            print(">= 6 seconds = RED")
+            //print(">= 6 seconds: RED")
             imageView.image = UIImage(named: "redLight")
         }
         else if seconds >= 3 {
-            print(">= 3 seconds = YELLOW")
+            //print(">= 3 seconds: YELLOW")
             imageView.image = UIImage(named: "yellowLight")
         }
-        else if seconds >= 0 {
-            print(">= 0 seconds = GREEN")
+        else {
+            //print("GREEN")
             imageView.image = UIImage(named: "greenLight")
         }
         
         
-                
         let timeString = String(format:"%01i:%02i:%02i:%02i", days, hours, minutes, seconds)
         
         scoopLabel.text = timeString
@@ -111,6 +109,14 @@ class ViewController: UIViewController {
     func updateCleanBoxTimer() {
         let currentTime2 = NSDate.timeIntervalSinceReferenceDate
         elapsedCleanBoxTime = currentTime2 - cleanBoxStartTime
+        
+        
+        //save
+        let defaults = UserDefaults.standard
+        defaults.set(elapsedCleanBoxTime, forKey: "eCBT")
+        defaults.synchronize()
+        print("eCBT= \(elapsedCleanBoxTime)")
+        
         
         let days2 = Int(elapsedCleanBoxTime / 86400)
         elapsedCleanBoxTime -= (TimeInterval(days2) * 86400)
@@ -128,6 +134,13 @@ class ViewController: UIViewController {
         let timeString = String(format:"%01i:%02i:%02i:%02i", days2, hours2, minutes2, seconds2)
         
         cleanBoxLabel.text = timeString
+    }
+    
+    func loadDefaults() {
+        let defaults = UserDefaults.standard
+        elapsedScoopTime = defaults.object(forKey: "eST") as! Double
+        elapsedCleanBoxTime = defaults.object(forKey: "eCBT") as! Double
+
     }
     
 }
