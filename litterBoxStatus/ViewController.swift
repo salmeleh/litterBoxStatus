@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var cleanBoxLabel: UILabel!
 
     @IBOutlet weak var firstStartButton: UIButton!
+    @IBOutlet weak var imageView: UIImageView!
     
     var scoopTimer = Timer()
     var cleanBoxTimer = Timer()
@@ -85,14 +86,18 @@ class ViewController: UIViewController {
         elapsedScoopTime -= TimeInterval(seconds)
         
         
-        if seconds == 10 {
-            print("10 seconds")
+        
+        if seconds >= 5 {
+            print(">= 6 seconds")
+            imageView.image = UIImage(named: "redLight")
         }
-        else if seconds == 5 {
-            print("5 seconds")
+        else if seconds >= 3 {
+            print(">= 3 seconds")
+            imageView.image = UIImage(named: "yellowLight")
         }
-        else if seconds == 2 {
-            print("2 seconds")
+        else if seconds >= 0 {
+            print(">= 0 seconds")
+            imageView.image = UIImage(named: "greenLight")
         }
         
         
