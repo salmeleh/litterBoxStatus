@@ -10,12 +10,14 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    //outlets
     @IBOutlet weak var scoopLabel: UILabel!
     @IBOutlet weak var cleanBoxLabel: UILabel!
 
     @IBOutlet weak var firstStartButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
     
+    //variables
     var scoopTimer = Timer()
     var cleanBoxTimer = Timer()
     
@@ -27,12 +29,24 @@ class ViewController: UIViewController {
     
     var refreshInterval = 0.1
     
+    
+    
+    //MARK: vDL
     override func viewDidLoad() {
         super.viewDidLoad()
         loadDefaults()
+        print("eST on load = \(elapsedScoopTime)")
+        print("eCBT on load = \(elapsedCleanBoxTime)")
+
+        if elapsedCleanBoxTime > 0.0 || elapsedScoopTime > 0.0 {
+            firstStartButtonPressed(UIButton)
+        }
+        
         firstStartButton.isHidden = false
     }
 
+    
+    
     //MARK: press buttons
     @IBAction func firstStartButtonPressed(_ sender: Any) {
         scoopButtonPressed(UIButton)
@@ -45,11 +59,20 @@ class ViewController: UIViewController {
     @IBAction func scoopButtonPressed(_ sender: Any) {
         scoopStartTime = NSDate.timeIntervalSinceReferenceDate
         
+        let defaults = UserDefaults.standard
+        defaults.set(scoopStartTime, forKey: "sST")
+        defaults.synchronize()
+        
         scoopTimer = Timer.scheduledTimer(timeInterval: refreshInterval, target: self, selector: #selector(updateScoopTimer), userInfo: nil, repeats: true)
     }
     
+    
     @IBAction func cleanBoxButtonPressed(_ sender: Any) {
         cleanBoxStartTime = NSDate.timeIntervalSinceReferenceDate
+        
+        let defaults = UserDefaults.standard
+        defaults.set(cleanBoxStartTime, forKey: "cBST")
+        defaults.synchronize()
         
         cleanBoxTimer = Timer.scheduledTimer(timeInterval: refreshInterval, target: self, selector: #selector(updateCleanBoxTimer), userInfo: nil, repeats: true)
         
@@ -69,7 +92,7 @@ class ViewController: UIViewController {
         let defaults = UserDefaults.standard
         defaults.set(elapsedScoopTime, forKey: "eST")
         defaults.synchronize()
-        print("eST= \(elapsedScoopTime)")
+        print("eST = \(elapsedScoopTime)")
         
         
         let days = Int(elapsedScoopTime / 86400)
@@ -115,7 +138,7 @@ class ViewController: UIViewController {
         let defaults = UserDefaults.standard
         defaults.set(elapsedCleanBoxTime, forKey: "eCBT")
         defaults.synchronize()
-        print("eCBT= \(elapsedCleanBoxTime)")
+        print("eCBT = \(elapsedCleanBoxTime)")
         
         
         let days2 = Int(elapsedCleanBoxTime / 86400)
@@ -140,7 +163,8 @@ class ViewController: UIViewController {
         let defaults = UserDefaults.standard
         elapsedScoopTime = defaults.object(forKey: "eST") as! Double
         elapsedCleanBoxTime = defaults.object(forKey: "eCBT") as! Double
-
+        //scoopStartTime = defaults.object(forKey: "sST") as! TimeInterval
+        //cleanBoxStartTime = defaults.object(forKey: "cBST") as! TimeInterval
     }
     
 }
