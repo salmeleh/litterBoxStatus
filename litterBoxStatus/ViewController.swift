@@ -68,21 +68,34 @@ class ViewController: UIViewController {
         let hours = Int(elapsedScoopTime / 3600.0)
         elapsedScoopTime -= (TimeInterval(hours) * 3600)
         
-        if hours > 12 {
-            //yellow
-        }
-        else if hours > 24 {
-            //orange
-        }
-        else if hours > 48 {
-            //red
-        }
+//        if hours > 12 {
+//            //yellow
+//        }
+//        else if hours > 24 {
+//            //orange
+//        }
+//        else if hours > 48 {
+//            //red
+//        }
         
         let minutes = Int(elapsedScoopTime / 60.0)
         elapsedScoopTime -= (TimeInterval(minutes) * 60)
         
         let seconds = Int(elapsedScoopTime)
         elapsedScoopTime -= TimeInterval(seconds)
+        
+        
+        if seconds == 10 {
+            print("10 seconds")
+        }
+        else if seconds == 5 {
+            print("5 seconds")
+        }
+        else if seconds == 2 {
+            print("2 seconds")
+        }
+        
+        
                 
         let timeString = String(format:"%01i:%02i:%02i:%02i", days, hours, minutes, seconds)
         
