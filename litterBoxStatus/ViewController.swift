@@ -229,8 +229,6 @@ class ViewController: UIViewController {
             //Set the content of the notification
             let content = UNMutableNotificationContent()
             content.title = "Yellow Light"
-            //content.subtitle = "From litterBoxStatus"
-            //content.body = "Notification after 3 seconds - Yellow Light"
             content.categoryIdentifier = "message"
             
             //Set the trigger of the notification -- here a timer. 
@@ -246,7 +244,7 @@ class ViewController: UIViewController {
             )
             
             //Add the notification to the currnet notification center
-            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+            UNUserNotificationCenter.current().add(request)
         }
     }
     
