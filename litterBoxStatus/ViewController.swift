@@ -38,12 +38,15 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         //check for notification permission
-        UNUserNotificationCenter.current().requestAuthorization(
-            options: [.alert,.sound,.badge],
-            completionHandler: { (granted,error) in
-                self.isGrantedNotificationAccess = granted
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge]) { (granted,error) in
+            if granted {
+                print("Notificaiton Granted")
+                self.isGrantedNotificationAccess = true
+            } else {
+                print("Notification NOT Granted")
+            }
         }
-        )
+        
         
         
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
@@ -220,17 +223,20 @@ class ViewController: UIViewController {
     
     //MARK: notification implementation
     func sendYellowNotification() {
-        if isGrantedNotificationAccess{
+        if isGrantedNotificationAccess {
             //add notification code here
             
             //Set the content of the notification
             let content = UNMutableNotificationContent()
             content.title = "Yellow Light"
-            content.subtitle = "From litterBoxStatus"
-            content.body = "Notification after 3 seconds - Yellow Light"
+            //content.subtitle = "From litterBoxStatus"
+            //content.body = "Notification after 3 seconds - Yellow Light"
             content.categoryIdentifier = "message"
             
             //Set the trigger of the notification -- here a timer. 
+            let trigger = UNTimeIntervalNotificationTrigger(
+                timeInterval: 3.0,
+                repeats: false)
             
             //Set the request for the notification from the above
             let request = UNNotificationRequest(
