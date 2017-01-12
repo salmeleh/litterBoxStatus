@@ -27,16 +27,37 @@ class ViewController: UIViewController {
     var elapsedScoopTime = 0.0
     var elapsedCleanBoxTime = 0.0
     
-    var refreshInterval = 0.1
-    
+    var refreshInterval = 0.25
+    var firstStart = true
     
     
     //MARK: vDL
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadDefaults()
+        let scoopStartTime = 0.0
+        let cleanBoxStartTime = 0.0
+        
+        if firstStart {
+            //set all UD to 0.0 aka current values
+            let defaults = UserDefaults.standard
+            defaults.set(scoopStartTime, forKey: "sST")
+            defaults.set(cleanBoxStartTime, forKey: "cBST")
+            defaults.set(elapsedScoopTime, forKey: "eST")
+            defaults.set(elapsedCleanBoxTime, forKey: "eCBT")
+            defaults.synchronize()
+            
+            //change firstStart flag
+            firstStart = false
+        
+        }
+        else {
+            loadDefaults()
+        }
+        
         print("eST on load = \(elapsedScoopTime)")
         print("eCBT on load = \(elapsedCleanBoxTime)")
+        print("sST on load = \(scoopStartTime)")
+        print("cBST on load = \(cleanBoxStartTime)")
 
         if elapsedCleanBoxTime > 0.0 || elapsedScoopTime > 0.0 {
             firstStartButtonPressed(UIButton)
@@ -163,8 +184,10 @@ class ViewController: UIViewController {
         let defaults = UserDefaults.standard
         elapsedScoopTime = defaults.object(forKey: "eST") as! Double
         elapsedCleanBoxTime = defaults.object(forKey: "eCBT") as! Double
-        //scoopStartTime = defaults.object(forKey: "sST") as! TimeInterval
-        //cleanBoxStartTime = defaults.object(forKey: "cBST") as! TimeInterval
+        if elapsedScoopTime > 0.0 || elapsedCleanBoxTime > 0.0 {
+            scoopStartTime = defaults.object(forKey: "sST") as! TimeInterval
+            cleanBoxStartTime = defaults.object(forKey: "cBST") as! TimeInterval
+        }
     }
     
 }
