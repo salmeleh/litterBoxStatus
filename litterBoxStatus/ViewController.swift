@@ -133,6 +133,7 @@ class ViewController: UIViewController {
         let days = Int(elapsedScoopTime / 86400)
         elapsedScoopTime -= (TimeInterval(days) * 86400)
         
+        
         let hours = Int(elapsedScoopTime / 3600.0)
         elapsedScoopTime -= (TimeInterval(hours) * 3600)
         
@@ -144,16 +145,15 @@ class ViewController: UIViewController {
         
         
         //update UIImage View based on time
-        if seconds >= 5 {
-            //print(">= 6 seconds: RED")
+        if days >= 1 {
+            print("RED LIGHT")
             imageView.image = UIImage(named: "redLight")
         }
-        else if seconds >= 3 {
-            //print(">= 3 seconds: YELLOW")
+        else if hours >= 12 {
+            print("YELLOW LIGHT")
             imageView.image = UIImage(named: "yellowLight")
         }
         else {
-            //print("GREEN")
             imageView.image = UIImage(named: "greenLight")
         }
         
