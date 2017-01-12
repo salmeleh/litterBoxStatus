@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class ViewController: UIViewController {
 
@@ -29,11 +30,21 @@ class ViewController: UIViewController {
     
     var refreshInterval = 0.1
 
+    var isGrantedNotificationAccess:Bool = false
     
     
     //MARK: vDL
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //check for notification permission
+        UNUserNotificationCenter.current().requestAuthorization(
+            options: [.alert,.sound,.badge],
+            completionHandler: { (granted,error) in
+                self.isGrantedNotificationAccess = granted
+        }
+        )
+        
         
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         if launchedBefore  {
@@ -145,13 +156,15 @@ class ViewController: UIViewController {
         
         
         //update UIImage View based on time
-        if days >= 1 {
+        if seconds >= 10 {
             print("RED LIGHT")
             imageView.image = UIImage(named: "redLight")
+            sendRedNotification()
         }
-        else if hours >= 12 {
+        else if seconds >= 3 {
             print("YELLOW LIGHT")
             imageView.image = UIImage(named: "yellowLight")
+            sendYellowNotification()
         }
         else {
             imageView.image = UIImage(named: "greenLight")
@@ -202,6 +215,37 @@ class ViewController: UIViewController {
             scoopStartTime = defaults.object(forKey: "sST") as! TimeInterval
             cleanBoxStartTime = defaults.object(forKey: "cBST") as! TimeInterval
         }
+    }
+    
+    
+    //MARK: notification implementation
+    func sendYellowNotification() {
+        if isGrantedNotificationAccess{
+            //add notification code here
+            
+            //Set the content of the notification
+            let content = UNMutableNotificationContent()
+            content.title = "Yellow Light"
+            content.subtitle = "From litterBoxStatus"
+            content.body = "Notification after 3 seconds - Yellow Light"
+            content.categoryIdentifier = "message"
+            
+            //Set the trigger of the notification -- here a timer. 
+            
+            //Set the request for the notification from the above
+            let request = UNNotificationRequest(
+                identifier: "yellowLightMessage",
+                content: content,
+                trigger: trigger
+            )
+            
+            //Add the notification to the currnet notification center
+            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        }
+    }
+    
+    func sendRedNotification() {
+        
     }
     
 }
