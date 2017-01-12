@@ -27,7 +27,7 @@ class ViewController: UIViewController {
     var elapsedScoopTime = 0.0
     var elapsedCleanBoxTime = 0.0
     
-    var refreshInterval = 0.25
+    var refreshInterval = 0.1
 
     
     
