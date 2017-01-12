@@ -28,27 +28,33 @@ class ViewController: UIViewController {
     var elapsedCleanBoxTime = 0.0
     
     var refreshInterval = 0.25
-    var firstStart = true
+
     
     
     //MARK: vDL
     override func viewDidLoad() {
         super.viewDidLoad()
-        let scoopStartTime = 0.0
-        let cleanBoxStartTime = 0.0
         
-        if firstStart {
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        if launchedBefore  {
+            print("Not first launch.")
+        } else {
+            print("First launch, setting UserDefault.")
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+        }
+        
+        if !launchedBefore {
             //set all UD to 0.0 aka current values
+            let scoopStartTime = 0.0
+            let cleanBoxStartTime = 0.0
+            
             let defaults = UserDefaults.standard
+            print("first launch, setting the four UserDefault variables to current value of 0.0")
             defaults.set(scoopStartTime, forKey: "sST")
             defaults.set(cleanBoxStartTime, forKey: "cBST")
             defaults.set(elapsedScoopTime, forKey: "eST")
             defaults.set(elapsedCleanBoxTime, forKey: "eCBT")
             defaults.synchronize()
-            
-            //change firstStart flag
-            firstStart = false
-        
         }
         else {
             loadDefaults()
@@ -60,7 +66,10 @@ class ViewController: UIViewController {
         print("cBST on load = \(cleanBoxStartTime)")
 
         if elapsedCleanBoxTime > 0.0 || elapsedScoopTime > 0.0 {
-            firstStartButtonPressed(UIButton)
+            //start timers with current values and hide firstStartButton
+            scoopTimer = Timer.scheduledTimer(timeInterval: refreshInterval, target: self, selector: #selector(updateScoopTimer), userInfo: nil, repeats: true)
+            cleanBoxTimer = Timer.scheduledTimer(timeInterval: refreshInterval, target: self, selector: #selector(updateCleanBoxTimer), userInfo: nil, repeats: true)
+            firstStartButton.isHidden = true
         }
         
         firstStartButton.isHidden = false
@@ -80,6 +89,8 @@ class ViewController: UIViewController {
     @IBAction func scoopButtonPressed(_ sender: Any) {
         scoopStartTime = NSDate.timeIntervalSinceReferenceDate
         
+        print("sST = \(scoopStartTime)")
+        
         let defaults = UserDefaults.standard
         defaults.set(scoopStartTime, forKey: "sST")
         defaults.synchronize()
@@ -90,6 +101,9 @@ class ViewController: UIViewController {
     
     @IBAction func cleanBoxButtonPressed(_ sender: Any) {
         cleanBoxStartTime = NSDate.timeIntervalSinceReferenceDate
+        
+        print("cBST = \(cleanBoxStartTime)")
+
         
         let defaults = UserDefaults.standard
         defaults.set(cleanBoxStartTime, forKey: "cBST")
