@@ -117,7 +117,7 @@ class ViewController: UIViewController {
     
     
     //MARK: updateTimers
-    func updateScoopTimer() {
+    @objc func updateScoopTimer() {
         
         let currentTime = NSDate.timeIntervalSinceReferenceDate
         elapsedScoopTime = currentTime - scoopStartTime
@@ -164,7 +164,7 @@ class ViewController: UIViewController {
     }
     
     
-    func updateCleanBoxTimer() {
+    @objc func updateCleanBoxTimer() {
         let currentTime2 = NSDate.timeIntervalSinceReferenceDate
         elapsedCleanBoxTime = currentTime2 - cleanBoxStartTime
         
