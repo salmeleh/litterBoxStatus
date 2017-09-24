@@ -79,8 +79,8 @@ class ViewController: UIViewController {
     
     //MARK: press buttons
     @IBAction func firstStartButtonPressed(_ sender: Any) {
-        scoopButtonPressed(UIButton)
-        cleanBoxButtonPressed(UIButton)
+        scoopButtonPressed(UIButton.self)
+        cleanBoxButtonPressed(UIButton.self)
         
         firstStartButton.isHidden = true
     }
@@ -111,7 +111,7 @@ class ViewController: UIViewController {
         
         cleanBoxTimer = Timer.scheduledTimer(timeInterval: refreshInterval, target: self, selector: #selector(updateCleanBoxTimer), userInfo: nil, repeats: true)
         
-        scoopButtonPressed(UIButton)
+        scoopButtonPressed(UIButton.self)
     }
     
     
