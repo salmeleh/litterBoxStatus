@@ -29,7 +29,19 @@ class InterfaceController: WKInterfaceController {
     }
 
     
+    //button declarations
+    @IBOutlet weak var butotn: scoopPoopButton
+    @IBOutlet weak var button: cleanBoxButton
     
+    
+    //button functions
+    @IBAction func scoopPoopButtonPressed(){
+        
+    }
+    
+    @IBAction func cleanBoxButtonPressed(){
+        
+    }
     
     
 }

@@ -14,9 +14,21 @@
             <objects>
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="litterBoxStatusWatch" customModuleProvider="target">
                     <items>
-                        <button width="1" alignment="left" verticalAlignment="bottom" title="Scoop Poop!" id="TZm-w3-jlx"/>
-                        <button width="1" alignment="left" verticalAlignment="bottom" title="Clean Box!" id="YkF-2X-Dm3"/>
+                        <button width="1" alignment="left" verticalAlignment="bottom" title="Scoop Poop!" id="TZm-w3-jlx">
+                            <connections>
+                                <action selector="scoopPoopButtonPressed" destination="AgC-eL-Hgc" id="2Uu-tT-5jt"/>
+                            </connections>
+                        </button>
+                        <button width="1" alignment="left" verticalAlignment="bottom" title="Clean Box!" id="YkF-2X-Dm3">
+                            <connections>
+                                <action selector="cleanBoxButtonPressed" destination="AgC-eL-Hgc" id="Jl3-GD-ZVG"/>
+                            </connections>
+                        </button>
                     </items>
+                    <connections>
+                        <outlet property="butotn" destination="TZm-w3-jlx" id="LgI-Dx-EzW"/>
+                        <outlet property="button" destination="YkF-2X-Dm3" id="Iqg-A9-99N"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="220" y="345"/>
