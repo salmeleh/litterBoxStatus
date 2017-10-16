@@ -15,6 +15,15 @@
 		203B731E1DF8774A0000E0C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 203B731C1DF8774A0000E0C5 /* LaunchScreen.storyboard */; };
 		203B73291DF8774A0000E0C5 /* litterBoxStatusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203B73281DF8774A0000E0C5 /* litterBoxStatusTests.swift */; };
 		203B73341DF8774A0000E0C5 /* litterBoxStatusUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 203B73331DF8774A0000E0C5 /* litterBoxStatusUITests.swift */; };
+		2057DBEC1F9551380095B8D7 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2057DBEA1F9551380095B8D7 /* Interface.storyboard */; };
+		2057DBEE1F9551380095B8D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2057DBED1F9551380095B8D7 /* Assets.xcassets */; };
+		2057DBF51F9551380095B8D7 /* litterBoxStatusWatch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2057DBF41F9551380095B8D7 /* litterBoxStatusWatch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2057DBFA1F9551380095B8D7 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2057DBF91F9551380095B8D7 /* InterfaceController.swift */; };
+		2057DBFC1F9551380095B8D7 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2057DBFB1F9551380095B8D7 /* ExtensionDelegate.swift */; };
+		2057DBFE1F9551380095B8D7 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2057DBFD1F9551380095B8D7 /* NotificationController.swift */; };
+		2057DC001F9551380095B8D7 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2057DBFF1F9551380095B8D7 /* ComplicationController.swift */; };
+		2057DC021F9551380095B8D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2057DC011F9551380095B8D7 /* Assets.xcassets */; };
+		2057DC071F9551380095B8D7 /* litterBoxStatusWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 2057DBE81F9551380095B8D7 /* litterBoxStatusWatch.app */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,7 +41,46 @@
 			remoteGlobalIDString = 203B730C1DF8774A0000E0C5;
 			remoteInfo = litterBoxStatus;
 		};
+		2057DBF61F9551380095B8D7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 203B73051DF8774A0000E0C5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2057DBF31F9551380095B8D7;
+			remoteInfo = "litterBoxStatusWatch Extension";
+		};
+		2057DC051F9551380095B8D7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 203B73051DF8774A0000E0C5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2057DBE71F9551380095B8D7;
+			remoteInfo = litterBoxStatusWatch;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2057DC0D1F9551380095B8D7 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				2057DBF51F9551380095B8D7 /* litterBoxStatusWatch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2057DC0F1F9551390095B8D7 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				2057DC071F9551380095B8D7 /* litterBoxStatusWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		203B730D1DF8774A0000E0C5 /* litterBoxStatus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = litterBoxStatus.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,6 +97,18 @@
 		203B732F1DF8774A0000E0C5 /* litterBoxStatusUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = litterBoxStatusUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		203B73331DF8774A0000E0C5 /* litterBoxStatusUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = litterBoxStatusUITests.swift; sourceTree = "<group>"; };
 		203B73351DF8774A0000E0C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2057DBE81F9551380095B8D7 /* litterBoxStatusWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = litterBoxStatusWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2057DBEB1F9551380095B8D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		2057DBED1F9551380095B8D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2057DBEF1F9551380095B8D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2057DBF41F9551380095B8D7 /* litterBoxStatusWatch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "litterBoxStatusWatch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2057DBF91F9551380095B8D7 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		2057DBFB1F9551380095B8D7 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		2057DBFD1F9551380095B8D7 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		2057DBFF1F9551380095B8D7 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		2057DC011F9551380095B8D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2057DC031F9551380095B8D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2057DC041F9551380095B8D7 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +133,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2057DBF11F9551380095B8D7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -82,6 +149,8 @@
 				203B730F1DF8774A0000E0C5 /* litterBoxStatus */,
 				203B73271DF8774A0000E0C5 /* litterBoxStatusTests */,
 				203B73321DF8774A0000E0C5 /* litterBoxStatusUITests */,
+				2057DBE91F9551380095B8D7 /* litterBoxStatusWatch */,
+				2057DBF81F9551380095B8D7 /* litterBoxStatusWatch Extension */,
 				203B730E1DF8774A0000E0C5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -92,6 +161,8 @@
 				203B730D1DF8774A0000E0C5 /* litterBoxStatus.app */,
 				203B73241DF8774A0000E0C5 /* litterBoxStatusTests.xctest */,
 				203B732F1DF8774A0000E0C5 /* litterBoxStatusUITests.xctest */,
+				2057DBE81F9551380095B8D7 /* litterBoxStatusWatch.app */,
+				2057DBF41F9551380095B8D7 /* litterBoxStatusWatch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -128,6 +199,30 @@
 			path = litterBoxStatusUITests;
 			sourceTree = "<group>";
 		};
+		2057DBE91F9551380095B8D7 /* litterBoxStatusWatch */ = {
+			isa = PBXGroup;
+			children = (
+				2057DBEA1F9551380095B8D7 /* Interface.storyboard */,
+				2057DBED1F9551380095B8D7 /* Assets.xcassets */,
+				2057DBEF1F9551380095B8D7 /* Info.plist */,
+			);
+			path = litterBoxStatusWatch;
+			sourceTree = "<group>";
+		};
+		2057DBF81F9551380095B8D7 /* litterBoxStatusWatch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				2057DBF91F9551380095B8D7 /* InterfaceController.swift */,
+				2057DBFB1F9551380095B8D7 /* ExtensionDelegate.swift */,
+				2057DBFD1F9551380095B8D7 /* NotificationController.swift */,
+				2057DBFF1F9551380095B8D7 /* ComplicationController.swift */,
+				2057DC011F9551380095B8D7 /* Assets.xcassets */,
+				2057DC031F9551380095B8D7 /* Info.plist */,
+				2057DC041F9551380095B8D7 /* PushNotificationPayload.apns */,
+			);
+			path = "litterBoxStatusWatch Extension";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,10 +233,12 @@
 				203B73091DF8774A0000E0C5 /* Sources */,
 				203B730A1DF8774A0000E0C5 /* Frameworks */,
 				203B730B1DF8774A0000E0C5 /* Resources */,
+				2057DC0F1F9551390095B8D7 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				2057DC061F9551380095B8D7 /* PBXTargetDependency */,
 			);
 			name = litterBoxStatus;
 			productName = litterBoxStatus;
@@ -184,13 +281,47 @@
 			productReference = 203B732F1DF8774A0000E0C5 /* litterBoxStatusUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		2057DBE71F9551380095B8D7 /* litterBoxStatusWatch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2057DC0E1F9551380095B8D7 /* Build configuration list for PBXNativeTarget "litterBoxStatusWatch" */;
+			buildPhases = (
+				2057DBE61F9551380095B8D7 /* Resources */,
+				2057DC0D1F9551380095B8D7 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2057DBF71F9551380095B8D7 /* PBXTargetDependency */,
+			);
+			name = litterBoxStatusWatch;
+			productName = litterBoxStatusWatch;
+			productReference = 2057DBE81F9551380095B8D7 /* litterBoxStatusWatch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		2057DBF31F9551380095B8D7 /* litterBoxStatusWatch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2057DC0C1F9551380095B8D7 /* Build configuration list for PBXNativeTarget "litterBoxStatusWatch Extension" */;
+			buildPhases = (
+				2057DBF01F9551380095B8D7 /* Sources */,
+				2057DBF11F9551380095B8D7 /* Frameworks */,
+				2057DBF21F9551380095B8D7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "litterBoxStatusWatch Extension";
+			productName = "litterBoxStatusWatch Extension";
+			productReference = 2057DBF41F9551380095B8D7 /* litterBoxStatusWatch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		203B73051DF8774A0000E0C5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0810;
+				LastSwiftUpdateCheck = 0900;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Stu Almeleh";
 				TargetAttributes = {
@@ -212,6 +343,15 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = 203B730C1DF8774A0000E0C5;
 					};
+					2057DBE71F9551380095B8D7 = {
+						CreatedOnToolsVersion = 9.0;
+						DevelopmentTeam = 754VQGA8M8;
+						ProvisioningStyle = Automatic;
+					};
+					2057DBF31F9551380095B8D7 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 203B73081DF8774A0000E0C5 /* Build configuration list for PBXProject "litterBoxStatus" */;
@@ -230,6 +370,8 @@
 				203B730C1DF8774A0000E0C5 /* litterBoxStatus */,
 				203B73231DF8774A0000E0C5 /* litterBoxStatusTests */,
 				203B732E1DF8774A0000E0C5 /* litterBoxStatusUITests */,
+				2057DBE71F9551380095B8D7 /* litterBoxStatusWatch */,
+				2057DBF31F9551380095B8D7 /* litterBoxStatusWatch Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -256,6 +398,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2057DBE61F9551380095B8D7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2057DBEE1F9551380095B8D7 /* Assets.xcassets in Resources */,
+				2057DBEC1F9551380095B8D7 /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2057DBF21F9551380095B8D7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2057DC021F9551380095B8D7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +447,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2057DBF01F9551380095B8D7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2057DBFE1F9551380095B8D7 /* NotificationController.swift in Sources */,
+				2057DC001F9551380095B8D7 /* ComplicationController.swift in Sources */,
+				2057DBFC1F9551380095B8D7 /* ExtensionDelegate.swift in Sources */,
+				2057DBFA1F9551380095B8D7 /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -300,6 +470,16 @@
 			isa = PBXTargetDependency;
 			target = 203B730C1DF8774A0000E0C5 /* litterBoxStatus */;
 			targetProxy = 203B73301DF8774A0000E0C5 /* PBXContainerItemProxy */;
+		};
+		2057DBF71F9551380095B8D7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2057DBF31F9551380095B8D7 /* litterBoxStatusWatch Extension */;
+			targetProxy = 2057DBF61F9551380095B8D7 /* PBXContainerItemProxy */;
+		};
+		2057DC061F9551380095B8D7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2057DBE71F9551380095B8D7 /* litterBoxStatusWatch */;
+			targetProxy = 2057DC051F9551380095B8D7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -318,6 +498,14 @@
 				203B731D1DF8774A0000E0C5 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		2057DBEA1F9551380095B8D7 /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2057DBEB1F9551380095B8D7 /* Base */,
+			);
+			name = Interface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -516,6 +704,94 @@
 			};
 			name = Release;
 		};
+		2057DC081F9551380095B8D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 754VQGA8M8;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				IBSC_MODULE = litterBoxStatusWatch_Extension;
+				INFOPLIST_FILE = litterBoxStatusWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = salmeleh.litterBoxStatus.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+			};
+			name = Debug;
+		};
+		2057DC091F9551380095B8D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 754VQGA8M8;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				IBSC_MODULE = litterBoxStatusWatch_Extension;
+				INFOPLIST_FILE = litterBoxStatusWatch/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = salmeleh.litterBoxStatus.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+			};
+			name = Release;
+		};
+		2057DC0A1F9551380095B8D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "litterBoxStatusWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = salmeleh.litterBoxStatus.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+			};
+			name = Debug;
+		};
+		2057DC0B1F9551380095B8D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "litterBoxStatusWatch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = salmeleh.litterBoxStatus.watchkitapp.watchkitextension;
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 4.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -551,6 +827,24 @@
 			buildConfigurations = (
 				203B733F1DF8774A0000E0C5 /* Debug */,
 				203B73401DF8774A0000E0C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2057DC0C1F9551380095B8D7 /* Build configuration list for PBXNativeTarget "litterBoxStatusWatch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2057DC0A1F9551380095B8D7 /* Debug */,
+				2057DC0B1F9551380095B8D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2057DC0E1F9551380095B8D7 /* Build configuration list for PBXNativeTarget "litterBoxStatusWatch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2057DC081F9551380095B8D7 /* Debug */,
+				2057DC091F9551380095B8D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
