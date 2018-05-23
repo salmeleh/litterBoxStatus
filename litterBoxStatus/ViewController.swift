@@ -35,6 +35,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         if launchedBefore  {
             print("Not first launch.")
@@ -180,18 +182,19 @@ class ViewController: UIViewController {
         elapsedCleanBoxTime -= (TimeInterval(days2) * 86400)
         
         
-        let hours2 = Int(elapsedCleanBoxTime / 3600.0)
-        elapsedCleanBoxTime -= (TimeInterval(hours2) * 3600)
+//        let hours2 = Int(elapsedCleanBoxTime / 3600.0)
+//        elapsedCleanBoxTime -= (TimeInterval(hours2) * 3600)
+//
+//        let minutes2 = Int(elapsedCleanBoxTime / 60.0)
+//        elapsedCleanBoxTime -= (TimeInterval(minutes2) * 60)
+//
+//        let seconds2 = Int(elapsedCleanBoxTime)
+//        elapsedCleanBoxTime -= TimeInterval(seconds2)
         
-        let minutes2 = Int(elapsedCleanBoxTime / 60.0)
-        elapsedCleanBoxTime -= (TimeInterval(minutes2) * 60)
-        
-        let seconds2 = Int(elapsedCleanBoxTime)
-        elapsedCleanBoxTime -= TimeInterval(seconds2)
-        
-        let timeString = String(format:"%01i:%02i:%02i:%02i", days2, hours2, minutes2, seconds2)
+        let timeString = String(format:"%01i Days", days2)
         
         cleanBoxLabel.text = timeString
+        cleanBoxLabel.sizeToFit()
     }
     
     func loadDefaults() {
