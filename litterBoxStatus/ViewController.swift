@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class ViewController: UIViewController {
 
@@ -29,11 +30,25 @@ class ViewController: UIViewController {
     
     var refreshInterval = 0.1
 
+    var isGrantedNotificationAccess:Bool = false
     
     
     //MARK: vDL
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //check for notification permission
+        //func registerForPushNotifications() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge]) { (granted,error) in
+            if granted {
+                print("Notification Granted")
+                self.isGrantedNotificationAccess = true
+            } else {
+                print("Notification NOT Granted")
+            }
+            self.getNotificationSettings()
+        }
+        
         
         
         
@@ -147,13 +162,19 @@ class ViewController: UIViewController {
         
         
         //update UIImage View based on time
-        if days >= 1 {
+        //if days >= 1 {
+        if seconds >= 10 {
             print("RED LIGHT")
             imageView.image = UIImage(named: "redLight")
+            
+            sendRedNotification()
         }
-        else if hours >= 12 {
+        //else if hours >= 12 {
+        else if seconds >= 3 {
             print("YELLOW LIGHT")
             imageView.image = UIImage(named: "yellowLight")
+            
+            sendYellowNotification()
         }
         else {
             imageView.image = UIImage(named: "greenLight")
@@ -206,6 +227,63 @@ class ViewController: UIViewController {
             cleanBoxStartTime = defaults.object(forKey: "cBST") as! TimeInterval
         }
     }
+    
+    
+    //MARK: notification implementation
+    func sendYellowNotification() {
+        if isGrantedNotificationAccess {
+            //add notification code here
+            
+            //set content of the notification
+            let content = UNMutableNotificationContent()
+            content.title = "Yellow Light"
+            content.subtitle = "From litterBoxStatus"
+            content.body = "Notification after 3 seconds - Yellow Light"
+            content.categoryIdentifier = "message"
+            
+            //set the trigger of the notification -- here a timer
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 3.0, repeats: false)
+            let trigger = UNNotificationTrigger()
+            
+            //set the request for the notiifcaiton from the above
+            let request = UNNotificationRequest(identifier: "yellowLightMessage", content: content, trigger: trigger)
+            
+            //add the notification to the current notification center
+            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        }
+    }
+    
+    func sendRedNotification() {
+    
+    }
+
+    //notificaiton app delegate (https://www.raywenderlich.com/156966/push-notifications-tutorial-getting-started)
+    func getNotificationSettings() {
+        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
+            print("Notification settings: \(settings)")
+            guard settings.authorizationStatus == .authorized else { return }
+            UIApplication.shared.registerForRemoteNotifications()
+        }
+    }
+    
+    func application(_ application: UIApplication,
+                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let tokenParts = deviceToken.map { data -> String in
+            return String(format: "%02.2hhx", data)
+        }
+        
+        let token = tokenParts.joined()
+        print("Device Token: \(token)")
+    }
+    
+    func application(_ application: UIApplication,
+                     didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("Failed to register: \(error)")
+    }
+    
+    
+    
+    
     
 }
 
