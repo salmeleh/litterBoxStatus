@@ -229,6 +229,7 @@ class ViewController: UIViewController {
     
     
     //MARK: notification implementation
+    //https://makeapppie.com/2016/08/08/how-to-make-local-notifications-in-ios-10/
     func sendYellowNotification() {
         if isGrantedNotificationAccess {
             //add notification code here
@@ -241,7 +242,7 @@ class ViewController: UIViewController {
             content.categoryIdentifier = "message"
             
             //set the trigger of the notification -- here a timer
-            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 3.0, repeats: false)
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false)
             
             //set the request for the notiifcaiton from the above
             let request = UNNotificationRequest(identifier: "yellowLightMessage", content: content, trigger: trigger)
