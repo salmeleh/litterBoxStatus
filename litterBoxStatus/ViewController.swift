@@ -38,7 +38,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         //check for notification permission
-        //func registerForPushNotifications() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge]) { (granted,error) in
             if granted {
                 print("Notification Granted")
@@ -46,7 +45,7 @@ class ViewController: UIViewController {
             } else {
                 print("Notification NOT Granted")
             }
-            self.getNotificationSettings()
+
         }
         
         
@@ -237,13 +236,12 @@ class ViewController: UIViewController {
             //set content of the notification
             let content = UNMutableNotificationContent()
             content.title = "Yellow Light"
-            content.subtitle = "From litterBoxStatus"
-            content.body = "Notification after 3 seconds - Yellow Light"
+            //content.subtitle = "From litterBoxStatus"
+            content.body = "Your litter box is getting kind of dirty..."
             content.categoryIdentifier = "message"
             
             //set the trigger of the notification -- here a timer
             let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 3.0, repeats: false)
-            let trigger = UNNotificationTrigger()
             
             //set the request for the notiifcaiton from the above
             let request = UNNotificationRequest(identifier: "yellowLightMessage", content: content, trigger: trigger)
@@ -256,32 +254,6 @@ class ViewController: UIViewController {
     func sendRedNotification() {
     
     }
-
-    //notificaiton app delegate (https://www.raywenderlich.com/156966/push-notifications-tutorial-getting-started)
-    func getNotificationSettings() {
-        UNUserNotificationCenter.current().getNotificationSettings { (settings) in
-            print("Notification settings: \(settings)")
-            guard settings.authorizationStatus == .authorized else { return }
-            UIApplication.shared.registerForRemoteNotifications()
-        }
-    }
-    
-    func application(_ application: UIApplication,
-                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        let tokenParts = deviceToken.map { data -> String in
-            return String(format: "%02.2hhx", data)
-        }
-        
-        let token = tokenParts.joined()
-        print("Device Token: \(token)")
-    }
-    
-    func application(_ application: UIApplication,
-                     didFailToRegisterForRemoteNotificationsWithError error: Error) {
-        print("Failed to register: \(error)")
-    }
-    
-    
     
     
     
