@@ -38,18 +38,7 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         super.viewDidLoad()
         
         //check for notification permission
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge]) { (granted,error) in
-            if granted {
-                print("Notification Granted")
-                self.isGrantedNotificationAccess = true
-            } else {
-                print("Notification NOT Granted")
-            }
-
-        }
-        
-        
-        
+        initNotificationSetupCheck()
         
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         if launchedBefore  {
@@ -232,6 +221,19 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     
     //MARK: notification implementation
     //https://makeapppie.com/2016/08/08/how-to-make-local-notifications-in-ios-10/
+    
+    func initNotificationSetupCheck(){
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge]) { (granted,error) in
+            if granted {
+                print("Notification Granted")
+                self.isGrantedNotificationAccess = true
+            } else {
+                print("Notification NOT Granted")
+            }
+            
+        }
+    }
+    
     func sendYellowNotification() {
         if isGrantedNotificationAccess {
             //set content of the notification
