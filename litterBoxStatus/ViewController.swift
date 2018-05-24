@@ -152,15 +152,15 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         
         
         //update UIImage View based on time
-        //if days >= 1 {
-        if seconds >= 10 {
+        if days >= 2 {
+        //if seconds >= 10 {
             print("RED LIGHT")
             imageView.image = UIImage(named: "redLight")
             
             sendRedNotification()
         }
-        //else if hours >= 12 {
-        else if seconds >= 3 {
+        else if days >= 1 {
+        //else if seconds >= 3 {
             print("YELLOW LIGHT")
             imageView.image = UIImage(named: "yellowLight")
             
