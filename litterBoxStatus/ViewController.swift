@@ -9,7 +9,7 @@
 import UIKit
 import UserNotifications
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UNUserNotificationCenterDelegate {
 
     //outlets
     @IBOutlet weak var scoopLabel: UILabel!
@@ -89,6 +89,8 @@ class ViewController: UIViewController {
         }
         
         firstStartButton.isHidden = false
+        
+        UNUserNotificationCenter.current().delegate = self
     }
 
     
@@ -253,10 +255,37 @@ class ViewController: UIViewController {
     }
     
     func sendRedNotification() {
-    
+        if isGrantedNotificationAccess {
+            //add notification code here
+            
+            //set content of the notification
+            let content = UNMutableNotificationContent()
+            content.title = "Red Light"
+            //content.subtitle = "From litterBoxStatus"
+            content.body = "Your litter box is dirty. Time to scoop poop"
+            content.categoryIdentifier = "message"
+            
+            //set the trigger of the notification -- here a timer
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false)
+            
+            //set the request for the notiifcaiton from the above
+            let request = UNNotificationRequest(identifier: "redLightMessage", content: content, trigger: trigger)
+            
+            //add the notification to the current notification center
+            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        }
     }
     
-    
+    //MARK: notification delegate
+    //enable foreground notification
+    //https://makeapppie.com/2016/11/21/manage-delete-and-update-notifications-in-ios-10/
+    func userNotificationCenter(
+        _ center: UNUserNotificationCenter,
+        willPresent notification: UNNotification,
+        withCompletionHandler completionHandler:
+        @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert,.sound])
+    }
     
 }
 
