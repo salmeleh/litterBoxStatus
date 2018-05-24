@@ -147,7 +147,7 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         defaults.synchronize()
         print("eST = \(elapsedScoopTime)")
         
-        
+        //calculate day / hour / minute / seconds for label
         let days = Int(elapsedScoopTime / 86400)
         elapsedScoopTime -= (TimeInterval(days) * 86400)
         
@@ -199,7 +199,7 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
         defaults.synchronize()
         print("eCBT = \(elapsedCleanBoxTime)")
         
-        
+        //calculate day / hour / minute / seconds for label
         let days2 = Int(elapsedCleanBoxTime / 86400)
         elapsedCleanBoxTime -= (TimeInterval(days2) * 86400)
         
@@ -234,8 +234,6 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     //https://makeapppie.com/2016/08/08/how-to-make-local-notifications-in-ios-10/
     func sendYellowNotification() {
         if isGrantedNotificationAccess {
-            //add notification code here
-            
             //set content of the notification
             let content = UNMutableNotificationContent()
             content.title = "Yellow Light"
@@ -243,10 +241,10 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
             content.body = "Your litter box is getting kind of dirty..."
             content.categoryIdentifier = "message"
             
-            //set the trigger of the notification -- here a timer
+            //create the notification trigger
             let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false)
             
-            //set the request for the notiifcaiton from the above
+            //schedule the request for the notification from the above
             let request = UNNotificationRequest(identifier: "yellowLightMessage", content: content, trigger: trigger)
             
             //add the notification to the current notification center
@@ -256,8 +254,6 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
     
     func sendRedNotification() {
         if isGrantedNotificationAccess {
-            //add notification code here
-            
             //set content of the notification
             let content = UNMutableNotificationContent()
             content.title = "Red Light"
@@ -265,10 +261,10 @@ class ViewController: UIViewController, UNUserNotificationCenterDelegate {
             content.body = "Your litter box is dirty. Time to scoop poop"
             content.categoryIdentifier = "message"
             
-            //set the trigger of the notification -- here a timer
+            //create the notification trigger
             let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.1, repeats: false)
             
-            //set the request for the notiifcaiton from the above
+            //schedule the request for the notification from the above
             let request = UNNotificationRequest(identifier: "redLightMessage", content: content, trigger: trigger)
             
             //add the notification to the current notification center
